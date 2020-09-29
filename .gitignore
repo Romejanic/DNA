@@ -1,1 +1,7 @@
+# java binaries
 /bin/
+*.jar
+*.class
+
+# dna binaries
+*.rna

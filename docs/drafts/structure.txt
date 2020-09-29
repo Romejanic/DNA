@@ -1,0 +1,142 @@
+# File extensions
+|Extension      |File Type                 |Acronym           |
+|---------------|--------------------------|------------------|
+|.dna           |DNA Source Code           |n/a               |
+|.rna           |Runnable Bytecode         |Runnable dNA      |
+|.ana           |DNA Assembler Code        |Assembled dNA     |
+|.dnl           |Dynamically-linked library|DNa Library       |
+|---------------|--------------------------|------------------|
+
+# Compile to bytecode (command line)
+java -jar dna.jar -o test -c file1.dna file2.dna
+
+# Compile to assembler code (command line)
+java -jar dna.jar -o test -a file1.dna file2.dna
+
+# Executing code (command line)
+java -jar dna.jar -r test.rna arg1 arg2
+
+# Variable definition
+let <name>: <type> = <value>;
+
+# Types
+|Name           |Size           |Signed? |
+|---------------|---------------|--------|
+|byte           |1 byte         |y       |
+|short          |2 bytes        |y       |
+|int            |4 bytes        |y       |
+|long           |8 bytes        |y       |
+|char           |alias for ubyte|y       |
+|string         |dynamic length |n/a     |
+|bool           |1 byte         |n/a     |
+|ubyte          |1 byte         |n       |
+|ushort         |2 bytes        |n       |
+|uint           |4 bytes        |n       |
+|ulong          |8 bytes        |n       |
+|void           |n/a (func only)|n/a     |
+|---------------|---------------|--------|
+|array[]        |length * size  |n/a     |
+|pointer*       |4 bytes        |n/a     |
+|---------------|---------------|--------|
+
+# Conditional statement
+// if statement
+if(condition) {
+	...
+}
+
+// if/else statement
+if(condition) {
+	...
+} else {
+	...
+}
+
+// elseif statement
+if(condition1) {
+	...
+} elseif(condition2) {
+	...
+} elseif(condition3) {
+	...
+}
+
+// elseif/else statement
+if(condition1) {
+	...
+} elseif(condition2) {
+	...
+} else {
+	...
+}
+
+# While loop
+// pre-condition
+while(condition) {
+	...
+}
+
+until(condition) {
+	...
+}
+
+// post-condition
+do {
+	...
+} while(condition);
+
+do {
+	...
+} until(condition);
+
+# For loop
+// condition is required, init and step are optional
+for(init; condition; step) {
+	...
+}
+
+// e.g.
+// type of 'i' is automatically determined
+// equivalent to 'let i: int = 5'.
+for(i = 5; i <= 25; i++) {
+	...
+}
+
+// empty init
+for(; i < 25; i++) {
+	...
+}
+
+// empty step
+for(i = 5; i < 25;) {
+	...
+}
+
+# Function definition
+func <name>(<param-name>: <param-type>, ...): <return-type> {
+	<body>
+	return <value>;
+}
+
+# Main function
+// args, exit code
+func main(args: string[]): int {
+	...
+	return 0;
+}
+
+// args, no exit code
+func main(args: string[]): void {
+	...
+}
+
+// no args, exit code
+func main(): int {
+	...
+	return 0;
+}
+
+// no args, no exit code
+func main(): void {
+	...
+}

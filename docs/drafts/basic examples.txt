@@ -1,0 +1,44 @@
+// DNA Example Code
+func hello(str: string): string {
+    return "hello, " + str + "!";
+}
+
+func main(args: string[]): void {
+	let name: string = "DNA";
+	if(args.length > 0) {
+		name = args[0];
+	}
+
+	let greeting: auto = hello(name);
+	println(greeting);
+}
+
+
+// Memory allocation example
+import <memory>
+
+func main(args: string[]): void {
+    let data: byte* = memory.alloc(5);
+	
+	data[0] = 'a';
+	data[1] = 'b';
+	data[2] = 75;
+	data[3] = 'd';
+	data[4] = 112;
+	
+	println(string.fromBytes(data, 5));
+	
+	memory.free(data, 5);
+}
+
+// Fizzbuzz example
+func main(): void {
+	for(i = 0; i < 50; i++) {
+		let by3: bool = i % 3 == 0;
+		let by5: bool = i % 5 == 0;
+		if(by3) print("Fizz");
+		if(by5) print("Buzz");
+		if(!by3 && !by5) print(i);
+		println();
+	}
+}
