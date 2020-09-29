@@ -13,8 +13,11 @@ java -jar dna.jar -o test -c file1.dna file2.dna
 # Compile to assembler code (command line)
 java -jar dna.jar -o test -a file1.dna file2.dna
 
-# Executing code (command line)
+# Executing programs (command line)
 java -jar dna.jar -r test.rna arg1 arg2
+
+# Dump assembler code from binary (command line)
+java -jar dna.jar -d test.rna
 
 # Variable definition
 let <name>: <type> = <value>;
